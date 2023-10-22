@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
         'folke/trouble.nvim',
         config = function()
             require("trouble").setup {
+                use_diagnostic_signs = true,
             }
         end
     }
@@ -51,6 +52,9 @@ return require('packer').startup(function(use)
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua' -- recommended if need floating window support
     use 'neovim/nvim-lspconfig'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
 
     -- for undo tree
     use("mbbill/undotree")
@@ -68,11 +72,21 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    -- for svelte
+    use 'evanleck/vim-svelte'
+    use 'pangloss/vim-javascript'
+
 	-- for theming
     use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- Git stuff
 	use 'airblade/vim-gitgutter'
+
+    -- For a diff view in the same window
+    use "sindrets/diffview.nvim"
+
+    -- For MarkDown Preview
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 	-- for vim commands
 	use 'tpope/vim-fugitive'
