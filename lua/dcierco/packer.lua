@@ -4,11 +4,15 @@ return require('packer').startup(function(use)
   	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
+    -- for NERDTree
+    use 'preservim/nerdtree'
+
   	-- for Telescope
   	use {
   		'nvim-telescope/telescope.nvim', tag = '0.1.2',
   		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
    	-- for Treesitteer
    	use {
@@ -43,10 +47,14 @@ return require('packer').startup(function(use)
         }
     }
 
+    use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { {"nvim-lua/plenary.nvim"} }
+    }
+
     -- idk what for (yet)
-    use("theprimeagen/harpoon")
     use("theprimeagen/refactoring.nvim")
-    use("laytan/cloak.nvim")
 
     -- for go
     use 'ray-x/go.nvim'
@@ -55,6 +63,10 @@ return require('packer').startup(function(use)
     use 'theHamsta/nvim-dap-virtual-text'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
+
+    -- for Java
+    use 'mfussenegger/nvim-jdtls'
+
 
     -- for undo tree
     use("mbbill/undotree")
