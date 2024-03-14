@@ -1,4 +1,5 @@
 require('catppuccin').setup({
+    transparent_background = true,
     integrations = {
         barbar = true,
         harpoon = true,
