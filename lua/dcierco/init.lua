@@ -1,3 +1,4 @@
+require("dcierco.lazy")
 require("dcierco.set")
 require("dcierco.remap")
 
