@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
   -- NERDTree
   {'preservim/nerdtree'},
 
@@ -35,7 +36,7 @@ require("lazy").setup({
         desc = "Diagnostics (Trouble)",
       },
       {
-        "<leader>xX",
+       "<leader>xX",
         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics (Trouble)",
       },
@@ -67,7 +68,7 @@ require("lazy").setup({
   {'ThePrimeagen/harpoon', branch = "harpoon2"},
   {'ThePrimeagen/refactoring.nvim'},
 
-  -- Lsp Zero
+  -- LSP Zero
   {'williamboman/mason.nvim'},
   {'williamboman/mason-lspconfig.nvim'},
   {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
@@ -84,7 +85,7 @@ require("lazy").setup({
   -- Barbar
   {'romgrk/barbar.nvim'},
 
-  -- Lualine (Statusline)
+  -- Lualine (Status line)
   {'nvim-lualine/lualine.nvim'},
 
   -- Copilot
@@ -105,5 +106,49 @@ require("lazy").setup({
 
   -- Treesitter Context
   {"nvim-treesitter/nvim-treesitter-context"},
+
+  -- Noice
+  {"folke/noice.nvim",
+  event = "VeryLazy",
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+  },
+
+  -- Notify
+  {"rcarriga/nvim-notify"},
+
+  -- Leetcode
+  {"kawre/leetcode.nvim",
+    cmd = "Leet",
+    lazy=false,
+  },
+
+  {"ggandor/leap.nvim",
+    cmd = "Leap",
+    lazy=false,
+    plugins = {
+    non_standalone = true,
+     },
+  },
+
+  -- lazy.nvim
+  {
+	"chrisgrieser/nvim-rip-substitute",
+	cmd = "RipSubstitute",
+	keys = {
+		{
+			"<leader>fs",
+			function() require("rip-substitute").sub() end,
+			mode = { "n", "x" },
+			desc = " rip substitute",
+		},
+	},
+  },
 
 })

@@ -43,3 +43,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.cmd.colorscheme "catppuccin"
 
 require('go').setup()
+
+vim.g.clipboard = {
+    name = 'wsl clipboard',
+    copy =  { ["+"] = { "wsl_clip" },   ["*"] = { "wsl_clip" } },
+    paste = { ["+"] = { "powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//'" }, ["*"] = { "powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//'" } },
+    cache_enabled = true
+}
